@@ -231,6 +231,41 @@ function sort_appointments(array $list): array
     return $list;
 }
 
+/**
+ * Can a patient still cancel this appointment? Only while it is "Not Arrived",
+ * has not been completed by the clinician and has not started yet.
+ */
+function can_patient_cancel(array $a): bool
+{
+    return empty($a['completed'])
+        && ($a['status'] ?? '') === 'Not Arrived'
+        && strtotime($a['date'] . ' ' . $a['time']) > time();
+}
+
+/**
+ * Cancel one of the patient's OWN appointments (checked and saved inside a
+ * single file lock). Returns 'ok', 'not_allowed' or 'not_found'.
+ * The slot becomes free again because the clash check ignores "Cancelled".
+ */
+function cancel_appointment(string $id, string $username): string
+{
+    return update_data(function (&$data) use ($id, $username) {
+        foreach ($data['appointments'] as &$a) {
+            if ($a['id'] !== $id || $a['patient_username'] !== $username) {
+                continue;
+            }
+            if (!can_patient_cancel($a)) {
+                return 'not_allowed';
+            }
+            $a['status']       = 'Cancelled';
+            $a['cancelled_by'] = 'patient';
+            $a['cancelled_at'] = date('Y-m-d H:i:s');
+            return 'ok';
+        }
+        return 'not_found';
+    });
+}
+
 // ---- Validation ------------------------------------------------------------
 
 /** Shared rules for name / phone / email (used by registration and booking). */

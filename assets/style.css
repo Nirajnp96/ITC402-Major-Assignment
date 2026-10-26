@@ -90,6 +90,10 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--p
 .btn-outline-light { background: transparent; color: #fff; border-color: rgba(255,255,255,.45); padding: .45rem 1rem; font-size: .88rem; }
 .btn-outline-light:hover { background: rgba(255,255,255,.14); }
 .btn-block { width: 100%; }
+.btn-danger { background: #c0392b; color: #fff; }
+.btn-danger:hover { background: #9b2a1f; }
+.btn-sm { padding: .3rem .8rem; font-size: .8rem; }
+.inline-form { margin: 0; display: inline; }
 .btn-row { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: .25rem; }
 
 /* ---------- Alerts ---------- */
