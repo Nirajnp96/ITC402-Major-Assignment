@@ -1,0 +1,173 @@
+/* ==========================================================================
+   Lautoka Private Hospital - Online Booking System
+   ========================================================================== */
+:root {
+    --navy: #0b2a4a;
+    --navy-2: #123e6b;
+    --primary: #0f6fb5;
+    --primary-dark: #0b5994;
+    --teal: #14a39a;
+    --success: #1a8a52;
+    --success-dark: #146e41;
+    --danger: #c0392b;
+    --bg: #f1f5f9;
+    --card: #ffffff;
+    --text: #1b2a3a;
+    --muted: #64748b;
+    --border: #dbe3ec;
+    --radius: 12px;
+    --shadow: 0 1px 2px rgba(15, 40, 70, .06), 0 4px 16px rgba(15, 40, 70, .06);
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+    margin: 0;
+    font-family: "Inter", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+h1, h2, h3 { margin: 0; line-height: 1.25; color: var(--navy); }
+a { color: var(--primary); }
+.logo { color: var(--teal); flex-shrink: 0; }
+
+/* ---------- Top bar ---------- */
+.topbar { background: linear-gradient(90deg, var(--navy), var(--navy-2)); color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+.topbar-inner { max-width: 1080px; margin: 0 auto; padding: .7rem 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .75rem; }
+.topbar-brand { display: flex; align-items: center; gap: .75rem; color: #fff; text-decoration: none; }
+.topbar-brand .logo { color: #5eead4; }
+.topbar-brand strong { display: block; font-size: 1.05rem; letter-spacing: .2px; }
+.topbar-brand small { display: block; font-size: .78rem; color: #b6c9de; }
+.topbar-user { display: flex; align-items: center; gap: 1rem; }
+.user-chip { display: flex; align-items: center; gap: .6rem; }
+.avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--teal); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+.user-text { display: flex; flex-direction: column; line-height: 1.2; font-size: .92rem; }
+.user-text small { color: #b6c9de; font-size: .75rem; }
+
+/* ---------- Layout ---------- */
+.container { width: 100%; max-width: 1080px; margin: 1.75rem auto; padding: 0 1.25rem; flex: 1; }
+.page-head { margin-bottom: 1.25rem; }
+.page-head h1 { font-size: 1.65rem; }
+.page-head p { margin: .25rem 0 0; color: var(--muted); }
+.site-footer { text-align: center; color: var(--muted); font-size: .8rem; padding: 1.25rem 1rem; }
+
+/* ---------- Tabs ---------- */
+.tabs { display: flex; gap: .35rem; border-bottom: 2px solid var(--border); margin-bottom: 1.25rem; overflow-x: auto; }
+.tab { padding: .65rem 1.1rem; text-decoration: none; color: var(--muted); font-weight: 600; border-bottom: 3px solid transparent; margin-bottom: -2px; white-space: nowrap; }
+.tab:hover { color: var(--primary); }
+.tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+.count { display: inline-block; min-width: 1.4rem; padding: 0 .45rem; margin-left: .25rem; border-radius: 999px; background: #e3edf6; color: var(--primary-dark); font-size: .75rem; text-align: center; }
+.tab.active .count { background: var(--primary); color: #fff; }
+
+/* ---------- Cards & forms ---------- */
+.card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem 1.75rem; margin-bottom: 1.1rem; box-shadow: var(--shadow); }
+.section-title { font-size: 1.05rem; margin: 1.5rem 0 .9rem; padding-bottom: .5rem; border-bottom: 1px solid var(--border); }
+.section-title.first, form > .section-title:first-of-type { margin-top: 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0 1.25rem; }
+.grid-status { grid-template-columns: 220px 1fr; }
+.field { margin-bottom: 1rem; }
+label { display: block; font-weight: 600; margin-bottom: .3rem; font-size: .875rem; color: #33475b; }
+input[type=text], input[type=password], input[type=tel], input[type=email], input[type=date], select, textarea {
+    width: 100%; padding: .65rem .8rem; border: 1px solid #c5d1de; border-radius: 8px; font: inherit; font-size: .95rem; background: #fff; color: var(--text);
+    transition: border-color .15s, box-shadow .15s;
+}
+textarea { resize: vertical; }
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(15, 111, 181, .18); }
+.invalid { border-color: var(--danger) !important; box-shadow: 0 0 0 3px rgba(192, 57, 43, .12); }
+.error { display: block; color: var(--danger); font-size: .8rem; min-height: 1.1em; margin-top: .25rem; }
+.hint { display: block; color: var(--muted); font-size: .76rem; margin-top: .25rem; }
+
+/* ---------- Buttons ---------- */
+.btn { display: inline-block; padding: .65rem 1.4rem; border: 1px solid transparent; border-radius: 8px; font: inherit; font-weight: 600; font-size: .95rem; cursor: pointer; text-decoration: none; transition: background .15s, transform .05s; }
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-success { background: var(--success); color: #fff; }
+.btn-success:hover { background: var(--success-dark); }
+.btn-outline-light { background: transparent; color: #fff; border-color: rgba(255,255,255,.45); padding: .45rem 1rem; font-size: .88rem; }
+.btn-outline-light:hover { background: rgba(255,255,255,.14); }
+.btn-block { width: 100%; }
+.btn-row { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: .25rem; }
+
+/* ---------- Alerts ---------- */
+.alert { padding: .8rem 1rem; border-radius: 8px; margin-bottom: 1.1rem; font-size: .92rem; border-left: 4px solid; }
+.alert-success { background: #e8f6ee; color: #14633a; border-color: var(--success); }
+.alert-error { background: #fdecea; color: #9b2a1f; border-color: var(--danger); }
+
+/* ---------- Stats ---------- */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.stat { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; box-shadow: var(--shadow); border-top: 3px solid var(--teal); }
+.stat-num { display: block; font-size: 1.9rem; font-weight: 700; color: var(--navy); line-height: 1.1; }
+.stat-label { color: var(--muted); font-size: .85rem; }
+
+/* ---------- Appointment cards (clinician) ---------- */
+.appt-head { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: .75rem; }
+.appt-head h3 { font-size: 1.2rem; margin: .1rem 0 .4rem; }
+.appt-id { font-size: .78rem; font-weight: 700; color: var(--muted); letter-spacing: .5px; }
+.chip { display: inline-block; padding: .15rem .7rem; border-radius: 999px; background: #e3f4f2; color: #0d776f; font-size: .78rem; font-weight: 600; }
+.appt-when { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: .2rem; }
+.appt-date { font-weight: 700; color: var(--navy); }
+.appt-time { color: var(--primary); font-weight: 600; }
+.appt-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .6rem 1.5rem; margin: 1rem 0 1.25rem; padding: .9rem 1rem; background: #f6f9fc; border-radius: 8px; }
+.appt-meta div { margin: 0; }
+.appt-meta .wide { grid-column: 1 / -1; }
+.appt-meta dt { font-size: .72rem; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); font-weight: 700; }
+.appt-meta dd { margin: 0; font-size: .92rem; }
+
+/* ---------- Tables & badges ---------- */
+.table-wrap { overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.table th, .table td { text-align: left; padding: .75rem .8rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+.table th { background: #f1f6fb; color: #425a72; font-size: .76rem; text-transform: uppercase; letter-spacing: .5px; }
+.table tbody tr:hover { background: #f9fbfd; }
+.badge { display: inline-block; padding: .18rem .7rem; border-radius: 999px; font-size: .75rem; font-weight: 700; white-space: nowrap; }
+.badge-not-arrived { background: #fff2cc; color: #7a5600; }
+.badge-arrived { background: #d9eefb; color: #0b5a85; }
+.badge-cancelled { background: #fbe0dd; color: #9b2a1f; }
+.badge-completed { background: #dcf3e5; color: #14633a; }
+.muted { color: var(--muted); }
+
+/* ---------- Auth pages (login / register) ---------- */
+.auth-body { background: #fff; }
+.auth-layout { display: grid; grid-template-columns: minmax(340px, 5fr) 6fr; min-height: 100vh; width: 100%; }
+.auth-hero {
+    position: relative; overflow: hidden; display: flex; align-items: center; padding: 3rem;
+    background: radial-gradient(circle at 15% 10%, #1b5a94 0, transparent 45%), linear-gradient(160deg, var(--navy), #0d3a63 60%, #0f4c75);
+    color: #fff;
+}
+.auth-hero::before, .auth-hero::after { content: ""; position: absolute; border-radius: 50%; background: rgba(94, 234, 212, .08); }
+.auth-hero::before { width: 380px; height: 380px; right: -140px; bottom: -120px; }
+.auth-hero::after { width: 220px; height: 220px; left: -80px; top: -60px; }
+.hero-content { position: relative; z-index: 1; max-width: 420px; }
+.hero-content .logo { color: #5eead4; margin-bottom: 1.25rem; }
+.hero-content h1 { color: #fff; font-size: 2.1rem; }
+.hero-sub { margin: .35rem 0 1.75rem; color: #9fd8d3; font-size: 1.05rem; letter-spacing: .5px; text-transform: uppercase; font-weight: 600; }
+.hero-list { list-style: none; padding: 0; margin: 0; display: grid; gap: .9rem; }
+.hero-list li { position: relative; padding-left: 1.9rem; color: #d6e4f2; }
+.hero-list li::before { content: "\2713"; position: absolute; left: 0; top: 0; width: 1.3rem; height: 1.3rem; border-radius: 50%; background: rgba(94, 234, 212, .2); color: #5eead4; font-size: .8rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.auth-panel { display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 2rem 1.5rem 0; background: var(--bg); }
+.auth-card { width: 100%; max-width: 420px; margin: auto; background: #fff; padding: 2.25rem; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 10px 40px rgba(15, 40, 70, .08); }
+.auth-card-wide { max-width: 560px; }
+.auth-card h2 { font-size: 1.55rem; }
+.auth-lead { color: var(--muted); margin: .3rem 0 1.5rem; }
+.auth-switch { text-align: center; margin: 1.25rem 0 0; color: var(--muted); font-size: .92rem; }
+.auth-switch a { font-weight: 600; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .auth-layout { grid-template-columns: 1fr; }
+    .auth-hero { padding: 2rem 1.5rem; }
+    .hero-content h1 { font-size: 1.6rem; }
+    .hero-list { display: none; }
+    .hero-sub { margin-bottom: 0; }
+    .auth-panel { padding-top: 1.5rem; }
+}
+@media (max-width: 640px) {
+    .card { padding: 1.1rem; }
+    .grid-status { grid-template-columns: 1fr; }
+    .appt-when { align-items: flex-start; text-align: left; }
+    .user-text { display: none; }
+}

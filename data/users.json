@@ -1,0 +1,74 @@
+{
+    "patients": {
+        "pat1792979774": {
+            "name": "Selenium Patient",
+            "email": "pat1792979774@example.com",
+            "phone": "+679 7654321",
+            "password_hash": "$2y$10$FXGIJvqoczIeVN8DIXw0MeknVhrla62Y\/YdEZB9gE4Q7cnud9UsKy",
+            "created_at": "2026-10-26 13:56:19"
+        },
+        "tom_kumar_980223": {
+            "name": "Tom Kumar",
+            "email": "tomkumar980223@gmail.com",
+            "phone": "9634899",
+            "password_hash": "$2y$10$bUkRre9fyD8yhxFXPmJBy.x86R\/3iVeAPABncyjUCb5uWOBGnp57q",
+            "created_at": "2026-10-26 14:03:47"
+        },
+        "jack_prasad_980223": {
+            "name": "Jack Prasad",
+            "email": "jackprasad980223@gmail.com",
+            "phone": "5830500",
+            "password_hash": "$2y$10$0nzQcmDOrJXkXOJk4jnPWe9SuVOXW5B6aAAJfNArEVhyScjKDodGy",
+            "created_at": "2026-10-26 14:03:52"
+        },
+        "tom_kumar_980578": {
+            "name": "Tom Kumar",
+            "email": "tomkumar980578@gmail.com",
+            "phone": "7225658",
+            "password_hash": "$2y$10$oJG.1f2vpncdtXEhnKy\/IOiY0BSJneO4yd5Yj.MeSdxLn1B9ao5Oy",
+            "created_at": "2026-10-26 14:09:42"
+        },
+        "jack_prasad_980578": {
+            "name": "Jack Prasad",
+            "email": "jackprasad980578@gmail.com",
+            "phone": "6771461",
+            "password_hash": "$2y$10$aRQjLmax9OSG1Rs\/vTwoZ.XorUJE3HhFVlbSBdyauZ90MpSMkNbzq",
+            "created_at": "2026-10-26 14:09:46"
+        },
+        "tom_kumar_999821": {
+            "name": "Tom Kumar",
+            "email": "tomkumar999821@gmail.com",
+            "phone": "2603688",
+            "password_hash": "$2y$10$2xN0.iD\/krxLJhX5GLhTHO6UZnUwgAEm7cog0agOWxOsr9jPSOve2",
+            "created_at": "2026-10-26 19:30:27"
+        },
+        "jack_prasad_999821": {
+            "name": "Jack Prasad",
+            "email": "jackprasad999821@gmail.com",
+            "phone": "1399735",
+            "password_hash": "$2y$10$V4Ddfz7DWuDgaXjQ5h3TJeipK5\/rkLbBelu0aVP3j\/eFHbLup2XzG",
+            "created_at": "2026-10-26 19:30:34"
+        },
+        "pat1793000206": {
+            "name": "Clinic Test Patient",
+            "email": "pat1793000206@example.com",
+            "phone": "+679 7654321",
+            "password_hash": "$2y$10$Di9J8XzAmv0TwwyvRCKcau71dbWztDkwes75qLPPc9X2XSeFqA806",
+            "created_at": "2026-10-26 19:36:52"
+        },
+        "tom_kumar": {
+            "name": "Tom Kumar",
+            "email": "tomkumar@gmail.com",
+            "phone": "7654321",
+            "password_hash": "$2y$10$\/L6x8HTY.yujhf3pDN.W5On0EVoNiJUXF6aH9xUMrgXCMSsVRBcXC",
+            "created_at": "2026-10-26 19:49:33"
+        },
+        "jack_prasad": {
+            "name": "Jack Prasad",
+            "email": "jackprasad@gmail.com",
+            "phone": "7123456",
+            "password_hash": "$2y$10$cLIS0eNckKoeFZJUdDBBi.2r.9P5mi9hLI1aKmq882EwL1DPvTxge",
+            "created_at": "2026-10-26 20:16:36"
+        }
+    }
+}
