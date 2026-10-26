@@ -1,6 +1,6 @@
 /**
  * Client-side validation (instant feedback). The same rules are enforced
- * again on the server in includes/functions.php, so this is a convenience,
+ * again on the server in functions.php, so this is a convenience,
  * never the only line of defence.
  */
 (function () {
