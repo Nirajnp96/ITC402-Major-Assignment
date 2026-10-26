@@ -105,6 +105,26 @@ $old = [
     'reason' => '',
 ];
 
+// ---- Handle "cancel appointment" -------------------------------------------
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'cancel') {
+    if (!csrf_valid()) {
+        flash('error', 'Session expired. Please try again.');
+    } else {
+        $apptId = trim($_POST['appointment_id'] ?? '');
+        switch (cancel_appointment($apptId, $user['username'])) {
+            case 'ok':
+                flash('success', "Appointment $apptId has been cancelled.");
+                break;
+            case 'not_allowed':
+                flash('error', "Appointment $apptId can no longer be cancelled online. Please contact the hospital.");
+                break;
+            default:
+                flash('error', 'Appointment not found.');
+        }
+    }
+    redirect('booking.php?tab=my');
+}
+
 // ---- Handle booking submission ---------------------------------------------
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tab = 'book';
@@ -312,7 +332,7 @@ $flash = take_flash();
                 <div class="table-wrap">
                 <table class="table" id="my-appointments">
                     <thead>
-                        <tr><th>Ref</th><th>Date</th><th>Time</th><th>Type</th><th>Clinician</th><th>Reason</th><th>Status</th></tr>
+                        <tr><th>Ref</th><th>Date</th><th>Time</th><th>Type</th><th>Clinician</th><th>Reason</th><th>Status</th><th>Action</th></tr>
                     </thead>
                     <tbody>
                     <?php foreach ($mine as $a):
@@ -326,6 +346,19 @@ $flash = take_flash();
                             <td><?= h($a['clinician_name']) ?></td>
                             <td><?= h($a['reason']) ?></td>
                             <td><span class="badge badge-<?= h($cls) ?>"><?= h($label) ?></span></td>
+                            <td>
+                                <?php if (can_patient_cancel($a)): ?>
+                                <form method="post" action="booking.php?tab=my" class="inline-form cancel-form"
+                                      data-confirm="Cancel appointment <?= h($a['id']) ?>?">
+                                    <input type="hidden" name="csrf" value="<?= h(csrf_token()) ?>">
+                                    <input type="hidden" name="action" value="cancel">
+                                    <input type="hidden" name="appointment_id" value="<?= h($a['id']) ?>">
+                                    <button type="submit" class="btn btn-danger btn-sm" id="cancel-<?= h($a['id']) ?>">Cancel</button>
+                                </form>
+                                <?php else: ?>
+                                <span class="muted">&mdash;</span>
+                                <?php endif; ?>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>

@@ -138,4 +138,14 @@
             return ok;
         });
     }
+
+    // Ask for confirmation before a patient cancels an appointment
+    var cancelForms = document.querySelectorAll('form.cancel-form');
+    for (var i = 0; i < cancelForms.length; i++) {
+        cancelForms[i].addEventListener('submit', function (e) {
+            if (!window.confirm(this.getAttribute('data-confirm') || 'Cancel this appointment?')) {
+                e.preventDefault();
+            }
+        });
+    }
 })();
