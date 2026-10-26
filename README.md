@@ -16,6 +16,7 @@ Developed for the ITC402 Major Assignment.
 - Book an appointment by choosing the **type**, **clinician**, **date** and **time slot**
 - Contact details are pre-filled from the patient's registration
 - View **My Appointments** with live status (*Not Arrived*, *Arrived*, *Cancelled*, *Completed*)
+- **Cancel** an upcoming appointment from *My Appointments* (only while it is still *Not Arrived* and has not started); the time slot is released for other patients
 
 ### Clinicians
 - Log in with a hospital-issued staff account
@@ -39,7 +40,7 @@ Developed for the ITC402 Major Assignment.
 - All output is HTML-escaped to prevent **XSS**
 - **Client-side validation** (`assets/validation.js`) for instant feedback, repeated on the **server** so it can never be bypassed
 - JSON files are written under an **exclusive file lock** so simultaneous bookings cannot overwrite each other
-- Role checks: patients and clinicians can only reach their own pages; clinicians can only edit their own appointments
+- Role checks: patients and clinicians can only reach their own pages; clinicians can only edit their own appointments, and patients can only cancel their own
 - Automated **Selenium** UI tests for both the patient and clinician flows
 
 ---
