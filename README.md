@@ -88,36 +88,19 @@ hospital-booking/
 ## Running the application locally
 
 ### Requirements
-- **PHP 7.3 or newer** with the `mbstring` and `session` extensions (enabled by default in XAMPP/WAMP)
+- **PHP 7.3 or newer**
 - A web browser
 
-### Option A – XAMPP / WAMP / MAMP (recommended)
+### XAMPP
 
 1. Install [XAMPP](https://www.apachefriends.org/) (or WAMP/MAMP).
 2. Clone the repository **into the web server's document root**:
    ```bash
-   cd C:\xampp\htdocs          # macOS/Linux: /opt/lampp/htdocs or /var/www/html
+   cd C:\xampp\htdocs 
    git clone https://github.com/Nirajnp96/ITC402-Major-Assignment.git hospital-booking
    ```
 3. Start **Apache** from the XAMPP Control Panel.
-4. Make sure the `data/` folder is writable by the web server (automatic on Windows; on Linux/macOS run `chmod -R 775 data`).
-5. Open <http://localhost/hospital-booking/> in your browser.
-
-This option enforces `data/.htaccess`, so the JSON files cannot be downloaded through the browser.
-
-### Option B – PHP built-in server (quick development only)
-
-From the project folder:
-
-```bash
-php -S localhost:8000
-```
-
-Then open <http://localhost:8000/>.
-
-> **Note:** the built-in server ignores `.htaccess`, so files in `data/` are
-> reachable by URL. Use this option for local development only – never for a
-> real deployment.
+4. Open <http://localhost/hospital-booking/> in your browser.
 
 ### Logging in
 
@@ -151,7 +134,6 @@ python testclinicians.py
 ```
 
 - The app must already be running at `http://localhost/hospital-booking/`
-  (change `BASE_URL` at the top of each test file if yours differs).
 - Google Chrome must be installed (Selenium 4.6+ downloads the matching driver automatically).
 - Screenshots are saved into `*-screenshots/` folders, which are git-ignored.
 - The tests **register new patients and create appointments**, so they change
@@ -160,24 +142,7 @@ python testclinicians.py
 
 ---
 
-## Version control workflow
-
-This project is managed with Git and hosted on GitHub.
-
-- `main` always holds working, reviewed code.
-- New work is done on a short-lived branch (e.g. `feature/<name>` or `fix/<name>`), then merged into `main` with a merge commit so the history shows when and why the feature was added.
-- Commit messages follow the style `type: short summary` (`feat`, `fix`, `docs`, `chore`, `test`), with a longer explanation in the body where needed.
-
-```bash
-git switch -c feature/my-change     # create a branch
-git add -A && git commit            # commit work
-git switch main
-git merge --no-ff feature/my-change # merge it back
-git push origin main
-```
-
----
-
 ## Author
 
-Nirajnp96 – ITC402 Major Assignment.
+Niraj Padyachi – ITC402 Major Assignment.
+Sonal Chandra - ITC402 Major Assignment
