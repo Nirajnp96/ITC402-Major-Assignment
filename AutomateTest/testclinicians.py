@@ -88,6 +88,13 @@ class ClinicianTests(unittest.TestCase):
         time.sleep(PAUSE)
         snap("select_" + element_id)
 
+    def choose_role(self, role):
+        """Click the Patient / Clinician radio button on the login page."""
+        self.wait.until(EC.element_to_be_clickable(
+            (By.CSS_SELECTOR, "label[for='role-%s']" % role))).click()
+        time.sleep(PAUSE)
+        snap("choose_role_" + role)
+
     def click(self, element_id):
         self.wait.until(EC.element_to_be_clickable((By.ID, element_id))).click()
         time.sleep(PAUSE)
@@ -111,7 +118,7 @@ class ClinicianTests(unittest.TestCase):
 
     def login(self, username, password, role):
         self.open("logout.php")
-        self.select("role", role)
+        self.choose_role(role)
         self.type("username", username)
         self.type("password", password)
         self.click("login-btn")

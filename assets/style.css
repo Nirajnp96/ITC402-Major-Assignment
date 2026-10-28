@@ -160,6 +160,16 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--p
 .auth-switch { text-align: center; margin: 1.25rem 0 0; color: var(--muted); font-size: .92rem; }
 .auth-switch a { font-weight: 600; }
 
+/* ---------- Role selector (segmented radio buttons) ---------- */
+.role-field { border: 0; padding: 0; margin: 0 0 1rem; min-width: 0; }
+.role-field legend { font-weight: 600; margin-bottom: .3rem; font-size: .875rem; color: #33475b; padding: 0; }
+.role-toggle { display: grid; grid-template-columns: 1fr 1fr; gap: .25rem; padding: .25rem; background: #eef3f8; border: 1px solid #c5d1de; border-radius: 10px; }
+.role-toggle input[type=radio] { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+.role-toggle label { margin: 0; padding: .6rem .5rem; text-align: center; border-radius: 8px; cursor: pointer; font-size: .95rem; color: var(--muted); transition: background .15s, color .15s, box-shadow .15s; user-select: none; }
+.role-toggle label:hover { color: var(--primary); }
+.role-toggle input:checked + label { background: var(--primary); color: #fff; box-shadow: 0 1px 3px rgba(15, 40, 70, .25); }
+.role-toggle input:focus-visible + label { outline: none; box-shadow: 0 0 0 3px rgba(15, 111, 181, .35); }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
     .auth-layout { grid-template-columns: 1fr; }

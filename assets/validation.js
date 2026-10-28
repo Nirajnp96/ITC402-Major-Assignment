@@ -66,7 +66,7 @@
     if (login) {
         guard(login, function () {
             var ok = true;
-            ok = setError('role', val('role') === '' ? 'Please select your role.' : '') && ok;
+            ok = setError('role', document.querySelector('input[name="role"]:checked') ? '' : 'Please select your role.') && ok;
             ok = setError('username', checkUsername(val('username'))) && ok;
 
             var p = raw('password'), pMsg = '';

@@ -89,6 +89,14 @@ class PatientTests(unittest.TestCase):
         snap("select_" + id_)
 
     @classmethod
+    def choose_role(cls, role):
+        """Click the Patient / Clinician radio button on the login page."""
+        cls.wait.until(EC.element_to_be_clickable(
+            (By.CSS_SELECTOR, "label[for='role-%s']" % role))).click()
+        time.sleep(PAUSE)
+        snap("choose_role_" + role)
+
+    @classmethod
     def click(cls, id_):
         cls.wait.until(EC.element_to_be_clickable((By.ID, id_))).click()
         time.sleep(PAUSE)
@@ -120,7 +128,7 @@ class PatientTests(unittest.TestCase):
     @classmethod
     def login(cls, username, password):
         cls.open("logout.php")
-        cls.select("role", "patient")
+        cls.choose_role("patient")
         cls.type("username", username)
         cls.type("password", password)
         cls.click("login-btn")
