@@ -99,15 +99,16 @@ $flash = take_flash();
                 <form id="login-form" method="post" action="index.php" novalidate>
                     <input type="hidden" name="csrf" value="<?= h(csrf_token()) ?>">
 
-                    <div class="field">
-                        <label for="role">I am a</label>
-                        <select id="role" name="role">
-                            <option value="">Select role</option>
-                            <option value="patient"   <?= $old['role'] === 'patient'   ? 'selected' : '' ?>>Patient</option>
-                            <option value="clinician" <?= $old['role'] === 'clinician' ? 'selected' : '' ?>>Clinician</option>
-                        </select>
+                    <fieldset class="field role-field">
+                        <legend>I am a</legend>
+                        <div class="role-toggle" role="radiogroup" aria-label="Select your role">
+                            <input type="radio" id="role-patient" name="role" value="patient" <?= $old['role'] === 'patient' ? 'checked' : '' ?>>
+                            <label for="role-patient">Patient</label>
+                            <input type="radio" id="role-clinician" name="role" value="clinician" <?= $old['role'] === 'clinician' ? 'checked' : '' ?>>
+                            <label for="role-clinician">Clinician</label>
+                        </div>
                         <span class="error" id="role-error"><?= h($errors['role'] ?? '') ?></span>
-                    </div>
+                    </fieldset>
 
                     <div class="field">
                         <label for="username">Username</label>
